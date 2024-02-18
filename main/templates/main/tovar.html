@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Товары
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-Carousel">
+       <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://wp-s.ru/wallpapers/7/7/479524445718066/glavnye-geroi-populyarnyx-kompyuternyx-igr.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://gamesqa.ru/wp-content/uploads/2017/08/wanneer-je-de-helft-van-iemands-leeftijd-bent-ben-je-exact-even-oud-als-zij-waren-toen-jij-geboren-werd.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://catherineasquithgallery.com/uploads/posts/2021-03/1614766745_159-p-igrovie-foni-dlya-youtube-205.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+       </div>
+</div>
+
+<div class="row overflow-auto">
+                {% for Products in product %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow p-3 mb-5 bg-body-tertiary rounded" style="height: 600px;">
+                            <img src="{{ Products.image.url }}" alt="{{ Products.name }}" style="height: 200px; width: 200px;" class="rounded mx-auto d-block">
+                            <div class="card-body">
+                                <h2 class="card-title" style="color: emphasis;">{{ Products.name }}</h2>
+                                    <p class="card-text" style="color: emphasis;">Цена: <span style="color: emphasis;">{{ Products.price }}</span> ₽</p>
+                                <p class="card-text fst-italic" style="color: emphasis;" >{{ Products.description }}</p>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-dark">Купить</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+{% endblock %}
